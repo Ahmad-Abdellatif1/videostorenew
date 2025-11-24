@@ -1,0 +1,30 @@
+{% extends 'videos/base.html' %}
+
+{% block title %}{{ video.MovieTitle }}{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h3 class="mb-0">🎬 {{ video.MovieTitle }}</h3>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <p><strong>Movie ID:</strong> {{ video.MovieID }}</p>
+                <p><strong>Title:</strong> {{ video.MovieTitle }}</p>
+                <p><strong>Genre:</strong> <span class="badge bg-info">{{ video.MovieGenre }}</span></p>
+            </div>
+            <div class="col-md-6">
+                <p><strong>Director:</strong> {{ video.DirectorName }}</p>
+                <p><strong>Actor 1:</strong> {{ video.Actor1Name }}</p>
+                <p><strong>Actor 2:</strong> {{ video.Actor2Name }}</p>
+                <p><strong>Release Year:</strong> {{ video.ReleaseYear }}</p>
+            </div>
+        </div>
+        <hr>
+        <a href="{% url 'home' %}" class="btn btn-secondary">Back to List</a>
+        <a href="{% url 'update_video' video.MovieID %}" class="btn btn-warning">Edit</a>
+        <a href="{% url 'delete_video' video.MovieID %}" class="btn btn-danger">Delete</a>
+    </div>
+</div>
+{% endblock %}
