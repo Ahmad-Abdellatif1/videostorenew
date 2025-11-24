@@ -1,29 +1,26 @@
-version: '3'
+version: '3.8'
 
 services:
   app1:
     build: .
+    container_name: videostore-app1
     environment:
       - APP_NAME=app1
     ports:
       - "8001:8000"
-    volumes:
-      - ./db.sqlite3:/app/db.sqlite3
 
   app2:
     build: .
+    container_name: videostore-app2
     environment:
       - APP_NAME=app2
     ports:
       - "8002:8000"
-    volumes:
-      - ./db.sqlite3:/app/db.sqlite3
 
   app3:
     build: .
+    container_name: videostore-app3
     environment:
       - APP_NAME=app3
     ports:
       - "8003:8000"
-    volumes:
-      - ./db.sqlite3:/app/db.sqlite3
